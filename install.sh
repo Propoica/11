@@ -63,7 +63,7 @@ enable_swap() {
 # Установка MoonTrader
 install_mt() {
     local folder="/opt/moontrader"
-    local link="https://cdn3.moontrader.com/beta/linux-x86_64/MoonTrader-linux-x86_64.tar.xz"
+    local link="https://cdn3.moontrader.com/beta/linux-arm64/MoonTrader-linux-arm64.tar.xz"
 
     echo "Установка MoonTrader..."
     mkdir -p "$folder"
