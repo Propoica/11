@@ -582,14 +582,14 @@ function install_mt() {
 }
 
 # Function to configure the time synchronization service
-function setup_time() {
-    log execution "$(extract_tips "h_install_packages_configure_start"): chrony"
-    timedatectl set-timezone Etc/UTC
+#function setup_time() {
+#    log execution "$(extract_tips "h_install_packages_configure_start"): chrony"
+ #   timedatectl set-timezone Etc/UTC
     # Enable and start the chronyd service
-    systemctl enable chrony >/dev/null 2>&1 || log error "Error: Failed to enable chrony service."
+  #  systemctl enable chrony >/dev/null 2>&1 || log error "Error: Failed to enable chrony service."
     # Configure the chrony service
-    echo -e "# Start of chrony configuration" >/etc/chrony/chrony.conf
-    if [[ $(dmidecode --string system-uuid) =~ ^[Ee][Cc]2 ]]; then # Configure time sync for AWS EC2
+   # echo -e "# Start of chrony configuration" >/etc/chrony/chrony.conf
+   # if [[ $(dmidecode --string system-uuid) =~ ^[Ee][Cc]2 ]]; then # Configure time sync for AWS EC2
         # https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/set-time.html
         echo -e "server 169.254.169.123 prefer iburst minpoll 4 maxpoll 4" >>/etc/chrony/chrony.conf
     fi
@@ -722,10 +722,10 @@ install_package "git"
 # install_dotnet 8.0
 
 # Install the necessary packages and dependencies
-if [[ $SETUP_TIME -eq 1 ]]; then
+#if [[ $SETUP_TIME -eq 1 ]]; then
  #   install_package "chrony"
  #   setup_time
-fi
+#fi
 
 if [[ $SETUP_FIREWALL -eq 1 ]]; then
     install_package "iptables-persistent"
