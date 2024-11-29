@@ -591,24 +591,24 @@ function install_mt() {
    # echo -e "# Start of chrony configuration" >/etc/chrony/chrony.conf
    # if [[ $(dmidecode --string system-uuid) =~ ^[Ee][Cc]2 ]]; then # Configure time sync for AWS EC2
         # https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/set-time.html
-        echo -e "server 169.254.169.123 prefer iburst minpoll 4 maxpoll 4" >>/etc/chrony/chrony.conf
-    fi
-    echo -e "server 0.pool.ntp.org iburst" >>/etc/chrony/chrony.conf
-    echo -e "server 1.pool.ntp.org iburst" >>/etc/chrony/chrony.conf
-    echo -e "server 2.pool.ntp.org iburst" >>/etc/chrony/chrony.conf
-    echo -e "server 3.pool.ntp.org iburst" >>/etc/chrony/chrony.conf
-    echo -e "pool time.aws.com iburst" >>/etc/chrony/chrony.conf
-    echo -e "minsources 2" >>/etc/chrony/chrony.conf
-    echo -e "maxchange 1000 0 0" >>/etc/chrony/chrony.conf
-    echo -e "makestep 0.1 1" >>/etc/chrony/chrony.conf
-    echo -e "maxdrift 500" >>/etc/chrony/chrony.conf
-    echo -e "maxslewrate 500" >>/etc/chrony/chrony.conf
-    echo -e "driftfile /var/lib/chrony/drift" >>/etc/chrony/chrony.conf
-    echo -e "rtcsync" >>/etc/chrony/chrony.conf
-    systemctl restart chronyd >/dev/null 2>&1 || log error "Error: Failed to restart chronyd service."
+  #      echo -e "server 169.254.169.123 prefer iburst minpoll 4 maxpoll 4" >>/etc/chrony/chrony.conf
+#    fi
+  #  echo -e "server 0.pool.ntp.org iburst" >>/etc/chrony/chrony.conf
+  #  echo -e "server 1.pool.ntp.org iburst" >>/etc/chrony/chrony.conf
+  #  echo -e "server 2.pool.ntp.org iburst" >>/etc/chrony/chrony.conf
+  #  echo -e "server 3.pool.ntp.org iburst" >>/etc/chrony/chrony.conf
+  #  echo -e "pool time.aws.com iburst" >>/etc/chrony/chrony.conf
+   # echo -e "minsources 2" >>/etc/chrony/chrony.conf
+  #  echo -e "maxchange 1000 0 0" >>/etc/chrony/chrony.conf
+  #  echo -e "makestep 0.1 1" >>/etc/chrony/chrony.conf
+  #  echo -e "maxdrift 500" >>/etc/chrony/chrony.conf
+  #  echo -e "maxslewrate 500" >>/etc/chrony/chrony.conf
+  #  echo -e "driftfile /var/lib/chrony/drift" >>/etc/chrony/chrony.conf
+  #  echo -e "rtcsync" >>/etc/chrony/chrony.conf
+  #  systemctl restart chronyd >/dev/null 2>&1 || log error "Error: Failed to restart chronyd service."
 
-    log success "$(extract_tips "h_install_packages_configure_complete"): chrony"
-}
+  #  log success "$(extract_tips "h_install_packages_configure_complete"): chrony"
+#}
 
 function setup_mtguardian {
     log info "Setup MT Guardian"
