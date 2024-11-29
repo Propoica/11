@@ -592,7 +592,7 @@ function install_mt() {
    # if [[ $(dmidecode --string system-uuid) =~ ^[Ee][Cc]2 ]]; then # Configure time sync for AWS EC2
         # https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/set-time.html
   #      echo -e "server 169.254.169.123 prefer iburst minpoll 4 maxpoll 4" >>/etc/chrony/chrony.conf
-  #    fi
+
   #  echo -e "server 0.pool.ntp.org iburst" >>/etc/chrony/chrony.conf
   #  echo -e "server 1.pool.ntp.org iburst" >>/etc/chrony/chrony.conf
   #  echo -e "server 2.pool.ntp.org iburst" >>/etc/chrony/chrony.conf
