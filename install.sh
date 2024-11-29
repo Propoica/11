@@ -48,10 +48,10 @@ declare -A tips=(
     ["h_create_mt_folder_new"]='{"en":"Enter a new name for the directory","ua":"Введіть нову назву для каталогу","ru":"Введите новое имя для каталога","es":"Ingrese un nuevo nombre para el directorio"}'
     ["h_create_mt_folder_install"]='{"en":"MoonTrader installation directory","ua":"Каталог встановлення MoonTrader","ru":"Установочный каталог MoonTrader","es":"Directorio de instalación de MoonTrader"}'
 
-    ["h_remove_packages_title"]='{"en":"Removing unnecessary packages and dependencies","ua":"Видалення непотрібних пакетів та залежностей","ru":"Удаление ненужных пакетов и зависимостей","es":"Eliminando paquetes y dependencias innecesarios"}'
-    ["h_remove_packages_start"]='{"en":"Removing","ua":"Видалення","ru":"Удаление","es":"Eliminando"}'
-    ["h_remove_packages_complete"]='{"en":"Successfully removed","ua":"Успішно видалено","ru":"Успешно удалено","es":"Eliminado exitosamente"}'
-    ["h_remove_packages_already"]='{"en":"Already removed","ua":"Вже видалено","ru":"Уже удалено","es":"Ya ha sido eliminado"}'
+   # ["h_remove_packages_title"]='{"en":"Removing unnecessary packages and dependencies","ua":"Видалення непотрібних пакетів та залежностей","ru":"Удаление ненужных пакетов и зависимостей","es":"Eliminando paquetes y dependencias innecesarios"}'
+   # ["h_remove_packages_start"]='{"en":"Removing","ua":"Видалення","ru":"Удаление","es":"Eliminando"}'
+  #  ["h_remove_packages_complete"]='{"en":"Successfully removed","ua":"Успішно видалено","ru":"Успешно удалено","es":"Eliminado exitosamente"}'
+   # ["h_remove_packages_already"]='{"en":"Already removed","ua":"Вже видалено","ru":"Уже удалено","es":"Ya ha sido eliminado"}'
 
     ["h_update_packages_title"]='{"en":"Updating packages and dependencies","ua":"Оновлення пакетів та залежностей","ru":"Обновление пакетов и зависимостей","es":"Actualizando paquetes y dependencias"}'
     ["h_update_packages_complete"]='{"en":"Packages and dependencies update completed","ua":"Оновлення пакетів та залежностей завершено","ru":"Обновление пакетов и зависимостей завершено","es":"Actualización de paquetes y dependencias completada"}'
@@ -337,8 +337,8 @@ setup_install() {
 # Function to handle automatic installation setup
 setup_automatic() {
     SETUP_CUSTOM_LINK=0
-    SETUP_TIME=1
-    SETUP_FIREWALL=1
+   # SETUP_TIME=1
+   SETUP_FIREWALL=1
     SETUP_FAIL2BAN=1
     SETUP_MT_GUARDIAN=0
 }
@@ -398,7 +398,7 @@ setup_custom() {
     done
 
     SETUP_CUSTOM_LINK=$((custom_link_choice))
-    SETUP_TIME=$((time_choice))
+    # SETUP_TIME=$((time_choice))
     SETUP_FIREWALL=$((firewall_choice))
     SETUP_FAIL2BAN=$((fil2ban_choice))
     SETUP_MT_GUARDIAN=$((defender_choice))
@@ -461,12 +461,12 @@ install_package() {
 }
 
 # Функция обновления пакетов и зависимостей
-function update_packages() {
-    log execution "$(extract_tips "h_update_packages_title")..."
-    apt update || log error "Error: Failed to update package lists."
-    DEBIAN_FRONTEND=noninteractive apt upgrade -y || log error "Error: Failed to update packages."
-    log success "$(extract_tips "h_update_packages_complete")"
-}
+#function update_packages() {
+  #  log execution "$(extract_tips "h_update_packages_title")..."
+  #  apt update || log error "Error: Failed to update package lists."
+   # DEBIAN_FRONTEND=noninteractive apt upgrade -y || log error "Error: Failed to update packages."
+   # log success "$(extract_tips "h_update_packages_complete")"
+#}
 
 # Функция удаления ненужных пакетов и зависимостей
 #function remove_packages() {
@@ -682,7 +682,7 @@ INSTALL_OPTION=
 setup_install
 
 SETUP_CUSTOM_LINK=
-SETUP_TIME=
+# SETUP_TIME=
 SETUP_FIREWALL=
 SETUP_FAIL2BAN=
 SETUP_MT_GUARDIAN=
@@ -702,8 +702,8 @@ clear
 log title "$(extract_tips "h_install_title")"
 enable_swap
 
-remove_packages
-update_packages
+#remove_packages
+#update_packages
 
 install_package "apt-transport-https"
 install_package "dmidecode"
