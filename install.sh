@@ -705,7 +705,7 @@ enable_swap
 #remove_packages
 #update_packages
 
-install_package "apt-transport-https"
+#install_package "apt-transport-https"
 install_package "dmidecode"
 install_package "htop"
 install_package "mc"
